@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>guess the numberr</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #111827;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: white;
+    }
+
+    .container {
+      width: 350px;
+      background: #1f2937;
+      display: inline-block;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #8b5cf6;
+    }
+
+    .task-box {
+      background: #374151;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .task-box h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #8b5cf6;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    button:hover {
+      background: #7c3aed;
+    }
+
+    .completed {
+      background: #10b981 !important;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>🔥 Guess The Number</h1>
+
+    <div class="task-box">
+      <input id="guessnumber" placeholder="Enter Number" style="padding: 10px; background-color: #374151;">
+      <button onclick="check()">check ✅</button>
+      <p id="result">You are Right/Wrong</p>
+      <p id="score">score:10🔥</p>
+    </div>
+
+  </div>
+
+  <script>
+    var guessnumber = document.getElementById("guessnumber")
+    var result = document.getElementById("result")
+    var score = document.getElementById("score")
+    var randomNumber= Math.floor(Math.random()*10)+1
+    var totalscore=10
+    function check()
+    {
+        var enterednumber = guessnumber.value
+        if(randomNumber==enterednumber)
+    {
+        console.log("Right")
+        result.textContent="Right"
+        alert("YOU WON")
+    }
+    else{
+        totalscore=totalscore-1
+        score.textContent="score:"+totalscore
+        result.textContent="Wrong"
+    }
+    }
+
+  </script>
+
+</body>
+</html>
